@@ -59,7 +59,7 @@ export const ImageSyncDialog = ({
           <DialogDescription>请选择图片进行同步</DialogDescription>
         </DialogHeader>
         <div className="bg-white rounded-lg w-full max-h-[60vh] overflow-y-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-4 gap-4">
             {images.map((img, index) => (
               <div
                 key={index}
