@@ -58,39 +58,41 @@ export const ImageSyncDialog = ({
           <DialogTitle>同步图片</DialogTitle>
           <DialogDescription>请选择图片进行同步</DialogDescription>
         </DialogHeader>
-        <div className="bg-white rounded-lg w-full max-h-[60vh] overflow-y-auto">
+        <div className="bg-card rounded-lg w-full max-h-[60vh] overflow-y-auto p-4">
           <div className="grid grid-cols-4 gap-4">
             {images.map((img, index) => (
               <div
                 key={index}
-                className="relative cursor-pointer"
+                className="relative cursor-pointer group"
                 onClick={() => toggleSelectImage(index)}
               >
                 <img
                   src={img.urls.small}
-                  className="h-auto w-full rounded-lg object-cover transition-all hover:scale-105"
+                  className="h-auto w-full rounded-lg object-cover transition-all group-hover:scale-105 border border-border"
                   alt=""
                 />
                 <div
                   className={cn(
-                    "absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg",
-                    img.selected ? "" : "hidden"
+                    "absolute inset-0 flex items-center justify-center bg-primary/60 backdrop-blur-sm rounded-lg transition-all",
+                    img.selected ? "opacity-100" : "opacity-0 pointer-events-none"
                   )}
                 >
-                  <svg
-                    className="w-8 h-8 text-white opacity-80"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
+                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                    <svg
+                      className="w-8 h-8 text-primary-foreground"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="3"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </div>
             ))}

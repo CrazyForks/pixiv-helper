@@ -72,15 +72,15 @@ function App() {
 
     if (loading) {
         return (
-            <div className="w-[400px] h-[400px] flex items-center justify-center">
-                <div className="animate-spin">Loading...</div>
+            <div className="w-[400px] h-[400px] flex items-center justify-center bg-background">
+                <Loader2 className="h-8 w-8 animate-spin text-primary" />
             </div>
         );
     }
 
     return (
-        <div className="w-[400px]">
-            <Card className={"rounded-none"}>
+        <div className="w-[400px] bg-background">
+            <Card className="rounded-none border-0 shadow-none">
                 <CardHeader>
                     <CardTitle>设置</CardTitle>
                     <CardDescription>配置 Pixiv 下载助手的基本参数</CardDescription>
